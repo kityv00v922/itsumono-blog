@@ -31,8 +31,8 @@ export const AMAZON = {
   buttonLabel: 'Amazonで見る',
 };
 
-/** お問い合わせ用 Googleフォームの URL（今は仮の値） */
-export const CONTACT_FORM_URL = 'https://forms.gle/XXXXXXXXXXXXXXXX';
+/** お問い合わせ用 Googleフォームの URL */
+export const CONTACT_FORM_URL = 'https://forms.gle/XfxE1rQc5S5dpn619';
 
 /**
  * カテゴリ一覧
