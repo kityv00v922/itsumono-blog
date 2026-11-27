@@ -49,8 +49,6 @@ npm install
 ```
 src/content/posts/
 ├── _template.md          ← テンプレート（公開されません）
-├── sample-review/        ← サンプル記事（下書き）
-│   └── index.md
 └── softener-review/      ← 新しい記事
     ├── index.md          ← _template.md をコピーして名前を変える
     ├── cover.jpg         ← 自分で撮った写真
