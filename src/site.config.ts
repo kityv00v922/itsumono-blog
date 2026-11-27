@@ -23,8 +23,8 @@ export const SITE = {
  *   Amazonアソシエイトの審査に通ったら、自分のトラッキングID（例: yourname-22）に書き換えてください。
  */
 export const AMAZON = {
-  /** トラッキングID（今は仮の値） */
-  associateTag: 'your-tag-22',
+  /** トラッキングID */
+  associateTag: 'kitv00v22-22',
   /** Amazon.co.jp の商品ページURLのベース */
   baseUrl: 'https://www.amazon.co.jp/dp/',
   /** ボタンに表示する文言 */
