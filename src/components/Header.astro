@@ -1,0 +1,57 @@
+---
+import { SITE, CATEGORIES } from '../site.config';
+import { url } from '../lib/posts';
+---
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href={url()}>{SITE.title}</a>
+    <nav aria-label="カテゴリ">
+      <ul>
+        {
+          CATEGORIES.map((c) => (
+            <li>
+              <a href={url(`category/${c.slug}/`)}>{c.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--c-line);
+  }
+  .site-header .container {
+    padding-top: 14px;
+    padding-bottom: 6px;
+  }
+  .logo {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+  }
+  nav ul {
+    display: flex;
+    gap: 4px 16px;
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.875rem;
+  }
+  nav a {
+    display: inline-block;
+    padding: 6px 0;
+    text-decoration: none;
+    color: var(--c-sub);
+  }
+  nav a:hover {
+    color: var(--c-text);
+  }
+</style>

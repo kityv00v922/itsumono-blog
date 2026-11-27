@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { getPublishedPosts, url } from '../lib/posts';
+import { SITE, CATEGORIES, LATEST_POSTS_COUNT } from '../site.config';
+
+const posts = await getPublishedPosts();
+const latest = posts.slice(0, LATEST_POSTS_COUNT);
+const byCategory = CATEGORIES.map((c) => ({
+  ...c,
+  posts: posts.filter((p) => p.data.category === c.slug).slice(0, 5),
+}));
+---
+
+<BaseLayout>
+  <p class="lead">{SITE.description}</p>
+
+  <section>
+    <h2 class="section-title">新着記事</h2>
+    <PostList posts={latest} />
+  </section>
+
+  {
+    byCategory.map((c) => (
+      <section>
+        <h2 class="section-title">{c.name}</h2>
+        <PostList posts={c.posts} />
+        {c.posts.length > 0 && (
+          <p class="more">
+            <a href={url(`category/${c.slug}/`)}>{c.name}の記事をすべて見る →</a>
+          </p>
+        )}
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .lead {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--c-sub);
+  }
+  .more {
+    margin: 10px 0 0;
+    text-align: right;
+    font-size: 0.875rem;
+  }
+</style>

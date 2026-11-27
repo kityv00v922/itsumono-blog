@@ -1,0 +1,47 @@
+---
+import { SITE, ASSOCIATE_DISCLOSURE } from '../site.config';
+import { url } from '../lib/posts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <!-- アソシエイトの表記：削除しないでください -->
+    <p class="disclosure">{ASSOCIATE_DISCLOSURE}</p>
+    <ul class="links">
+      <li><a href={url('about/')}>運営者情報</a></li>
+      <li><a href={url('privacy/')}>プライバシーポリシー</a></li>
+      <li><a href={url('contact/')}>お問い合わせ</a></li>
+    </ul>
+    <p class="copy">&copy; {year} {SITE.title}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--c-line);
+    background: var(--c-bg-soft);
+    padding: 24px 0 32px;
+    font-size: 0.8125rem;
+    color: var(--c-sub);
+  }
+  .disclosure {
+    margin: 0 0 12px;
+    color: var(--c-text);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+  }
+  .links a {
+    display: inline-block;
+    padding: 4px 0;
+  }
+  .copy {
+    margin: 0;
+  }
+</style>

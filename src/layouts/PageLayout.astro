@@ -1,0 +1,25 @@
+---
+// 運営者情報・プライバシーポリシーなど、固定ページ用のレイアウト
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+// .astro から使うときは props、.md の layout から使うときは frontmatter に値が入る
+const { title, description } = (Astro.props as any).frontmatter ?? Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="prose">
+    <h1>{title}</h1>
+    <slot />
+  </article>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 1.5rem;
+    margin: 0 0 1em;
+  }
+</style>

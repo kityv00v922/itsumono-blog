@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import { type Post, postUrl, formatDate, categoryName, url } from '../lib/posts';
+
+interface Props {
+  posts: Post[];
+}
+const { posts } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="muted">まだ記事がありません。</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li class="post-item">
+          {post.data.cover && (
+            <a href={postUrl(post)} class="thumb" tabindex="-1" aria-hidden="true">
+              <Image
+                src={post.data.cover}
+                alt=""
+                width={160}
+                height={120}
+                widths={[160, 320]}
+                sizes="96px"
+                loading="lazy"
+              />
+            </a>
+          )}
+          <div class="body">
+            <a class="title" href={postUrl(post)}>
+              {post.data.draft && <span class="draft">下書き</span>}
+              {post.data.title}
+            </a>
+            <p class="meta">
+              <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+              <a href={url(`category/${post.data.category}/`)}>{categoryName(post.data.category)}</a>
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .post-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .post-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .thumb {
+    flex-shrink: 0;
+    width: 96px;
+  }
+  .thumb :global(img) {
+    width: 96px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: var(--c-bg-soft);
+  }
+  .body {
+    min-width: 0;
+  }
+  .title {
+    display: block;
+    font-weight: 700;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+  .title:hover {
+    text-decoration: underline;
+  }
+  .draft {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 0 6px;
+    font-size: 0.75rem;
+    border: 1px dashed var(--c-sub);
+    color: var(--c-sub);
+  }
+  .meta {
+    display: flex;
+    gap: 12px;
+    margin: 4px 0 0;
+    font-size: 0.8125rem;
+    color: var(--c-sub);
+  }
+  .meta a {
+    text-decoration: none;
+  }
+</style>

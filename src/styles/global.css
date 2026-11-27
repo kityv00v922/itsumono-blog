@@ -1,0 +1,185 @@
+/* モノトーン・スマホ優先のシンプルなスタイル */
+:root {
+  --c-text: #1a1a1a;
+  --c-sub: #666;
+  --c-line: #e2e2e2;
+  --c-bg: #fff;
+  --c-bg-soft: #f5f5f5;
+  --c-accent: #1a1a1a;
+  --c-accent-text: #fff;
+  --w-content: 42rem;
+  --radius: 6px;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: system-ui, -apple-system, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+    Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--w-content);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main {
+  padding: 24px 0 48px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+}
+
+.section-title {
+  font-size: 1.05rem;
+  border-bottom: 2px solid var(--c-text);
+  padding-bottom: 6px;
+  margin: 40px 0 16px;
+}
+
+.muted {
+  color: var(--c-sub);
+  font-size: 0.875rem;
+}
+
+/* ---------- 記事本文 ---------- */
+.prose h2 {
+  font-size: 1.25rem;
+  margin: 2.4em 0 0.8em;
+  padding: 0.3em 0 0.3em 0.7em;
+  border-left: 4px solid var(--c-text);
+}
+
+.prose h3 {
+  font-size: 1.05rem;
+  margin: 2em 0 0.6em;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 1.2em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose img {
+  border-radius: var(--radius);
+  margin: 1.2em auto;
+}
+
+.prose blockquote {
+  margin: 1.2em 0;
+  padding: 0.6em 1em;
+  background: var(--c-bg-soft);
+  border-left: 3px solid var(--c-line);
+  color: var(--c-sub);
+}
+
+.prose blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 0.9rem;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--c-line);
+  padding: 0.5em 0.7em;
+  text-align: left;
+}
+
+.prose th {
+  background: var(--c-bg-soft);
+}
+
+/* ---------- Amazon商品ボタン（::amazon で出力される） ---------- */
+.amazon-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1.6em 0;
+  padding: 16px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  background: var(--c-bg-soft);
+}
+
+.amazon-box__name {
+  display: block;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.amazon-box__button {
+  display: block;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  background: var(--c-accent);
+  color: var(--c-accent-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.amazon-box__button:hover,
+.amazon-box__button:focus-visible {
+  opacity: 0.85;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+
+  .amazon-box {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .amazon-box__button {
+    flex-shrink: 0;
+    min-width: 12em;
+  }
+}

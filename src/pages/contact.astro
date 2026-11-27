@@ -1,0 +1,27 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { CONTACT_FORM_URL } from '../site.config';
+---
+
+<PageLayout title="お問い合わせ" description="当サイトへのお問い合わせ">
+  <p>当サイトへのご質問・ご連絡は、以下のお問い合わせフォーム（Googleフォーム）からお願いいたします。</p>
+  <p>内容を確認のうえ、必要に応じてご返信いたします。返信までお時間をいただく場合がございますので、あらかじめご了承ください。</p>
+  <p class="cta">
+    <a href={CONTACT_FORM_URL} target="_blank" rel="noopener">お問い合わせフォームを開く</a>
+  </p>
+  <p class="muted">※ 商品そのものに関するお問い合わせ（在庫・配送・不具合など）は、販売元へ直接お問い合わせください。</p>
+</PageLayout>
+
+<style>
+  .cta a {
+    display: block;
+    margin: 1.6em 0;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    background: var(--c-accent);
+    color: var(--c-accent-text);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+</style>

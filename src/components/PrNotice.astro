@@ -1,0 +1,33 @@
+---
+// 全記事の冒頭に自動で表示される「PR」表記。削除しないでください。
+---
+
+<p class="pr-notice">
+  <span class="pr-label">PR</span>
+  この記事にはアフィリエイトリンク（Amazonアソシエイト）を含みます。
+</p>
+
+<style>
+  .pr-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0 0 20px;
+    padding: 10px 12px;
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--c-sub);
+  }
+  .pr-label {
+    flex-shrink: 0;
+    padding: 0 6px;
+    border: 1px solid var(--c-text);
+    border-radius: 3px;
+    color: var(--c-text);
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+</style>
